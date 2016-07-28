@@ -1,4 +1,36 @@
+from:
+  logo: MY LOGO
+  name: John Smith
+  address: |
+    1 Main Road
+    Cape Town
+    8001
+  phone: 021 000 0000
+  mobilephone: 082 000 0000
+  email: john@example.com
+  url: http://www.example.com
+  bank:
+    bank: My Bank
+    account: 1234567890
+    branchcode: 123456
+
+to:
+  name: Susan Customer
+  address: |
+    2 Sesame Street
+    Pretoria
+    0001
+
+yourref: Your reference
+myref: My reference
+customer: 123
+invoice: 456
+place: Place
+date: 26 July 2016  # defaults to today
+
 items:
-  - value: 1
-  - value: 2
-  - value: 3
+  - description: A bunch of things
+    quantity: 3
+    unitprice: 100
+  - description: Amount only
+    amount: 100

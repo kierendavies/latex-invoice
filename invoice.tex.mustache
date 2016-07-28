@@ -1,9 +1,40 @@
+{{=<< >>=}}
+
 \documentclass{invoice}
 
+<<#from>>
+  \setkomavar{fromlogo}{<<logo>>}
+  \setkomavar{fromname}{<<name>>}
+  \setkomavar{fromaddress}{<<address>>}
+  \setkomavar{fromphone}{<<phone>>}
+  \setkomavar{frommobilephone}{<<mobilephone>>}
+  \setkomavar{fromemail}{<<email>>}
+  \setkomavar{fromurl}{<<url>>}
+  <<#bank>>
+    \setkomavar{frombankbank}{<<bank>>}
+    \setkomavar{frombankaccount}{<<account>>}
+    \setkomavar{frombankbranchcode}{<<branchcode>>}
+  <</bank>>
+<</from>>
+
+<<#to>>
+  \setkomavar{toname}{<<name>>}
+  \setkomavar{toaddress}{<<address>>}
+<</to>>
+
+\setkomavar{yourref}{<<yourref>>}
+\setkomavar{yourmail}{<<yourmail>>}
+\setkomavar{myref}{<<myref>>}
+\setkomavar{customer}{<<customer>>}
+\setkomavar{invoice}{<<invoice>>}
+\setkomavar{place}{<<place>>}
+<<#date>>
+  \setkomavar{date}{<<date>>}
+<</date>>
+
 \begin{document}
-
-{{#items}}
-  {{value}}
-{{/items}}
-
+  <<#items>>
+    \item{<<description>>}{<<quantity>>}{<<unitprice>>}{<<amount>>}
+  <</items>>
+  \total{<<totalamount>>}
 \end{document}
