@@ -12,7 +12,7 @@
   fromalign=left,
   fromrule=afteraddress,
   backaddress=false,
-	foldmarks=false,
+  foldmarks=false,
 }
 
 % Default fields
@@ -47,42 +47,42 @@
 \newcolumntype{d}{D{.}{.}{2}}
 \newkomavar{invoicetotal}
 \newenvironment{invoice}{
-	\ignorespaces
-	\renewcommand{\item}[4]{##1&##2&##3&##4\\}
-	\newcommand{\total}[1]{\\\hline\hline\textbf{Total}&&&##1}
-	\setlength\LTleft{0pt}
-	\setlength\LTright{0pt}
-	\begin{longtable}{@{\extracolsep{\fill}}q{7cm}rdd}
-	  \textbf{Description} &
-		\multicolumn{1}{r}{\textbf{Quantity}} &
-		\multicolumn{1}{r}{\textbf{Unit Price}} &
-		\multicolumn{1}{r}{\textbf{Amount}} \\
-		\hline
-	  \endhead
+  \ignorespaces
+  \renewcommand{\item}[4]{##1&##2&##3&##4\\}
+  \newcommand{\total}[1]{\\\hline\hline\textbf{Total}&&&##1}
+  \setlength\LTleft{0pt}
+  \setlength\LTright{0pt}
+  \begin{longtable}{@{\extracolsep{\fill}}q{7cm}rdd}
+    \textbf{Description} &
+    \multicolumn{1}{r}{\textbf{Quantity}} &
+    \multicolumn{1}{r}{\textbf{Unit Price}} &
+    \multicolumn{1}{r}{\textbf{Amount}} \\
+    \hline
+    \endhead
 }{
-	\end{longtable}
+  \end{longtable}
 }
 
 \AtBeginDocument{
-	% Enable display of non-empty fields
-	\ifkomavarempty{fromlogo}{}{\KOMAoptions{fromlogo}}
-	\ifkomavarempty{fromphone}{}{\KOMAoptions{fromphone}}
-	\ifkomavarempty{frommobilephone}{}{\KOMAoptions{frommobilephone}}
-	\ifkomavarempty{fromemail}{}{\KOMAoptions{fromemail}}
-	\ifkomavarempty{fromurl}{}{\KOMAoptions{fromurl}}
-	\setkomavar{frombank}{%
-		\begin{tabular}{@{}ll@{}}
-			\ifkomavarempty{frombankbank}{}{%
-				Bank & \usekomavar{frombankbank} \\
-			}
-			\ifkomavarempty{frombankaccount}{}{%
-				Acc.{} no.{} & \usekomavar{frombankaccount} \\
-			}
-			\ifkomavarempty{frombankbranchcode}{}{%
-				Branch code & \usekomavar{frombankbranchcode} \\
-			}
-		\end{tabular}
-	}
+  % Enable display of non-empty fields
+  \ifkomavarempty{fromlogo}{}{\KOMAoptions{fromlogo}}
+  \ifkomavarempty{fromphone}{}{\KOMAoptions{fromphone}}
+  \ifkomavarempty{frommobilephone}{}{\KOMAoptions{frommobilephone}}
+  \ifkomavarempty{fromemail}{}{\KOMAoptions{fromemail}}
+  \ifkomavarempty{fromurl}{}{\KOMAoptions{fromurl}}
+  \setkomavar{frombank}{%
+    \begin{tabular}{@{}ll@{}}
+      \ifkomavarempty{frombankbank}{}{%
+        Bank & \usekomavar{frombankbank} \\
+      }
+      \ifkomavarempty{frombankaccount}{}{%
+        Acc.{} no.{} & \usekomavar{frombankaccount} \\
+      }
+      \ifkomavarempty{frombankbranchcode}{}{%
+        Branch code & \usekomavar{frombankbranchcode} \\
+      }
+    \end{tabular}
+  }
   \ifkomavarempty{frombank}{}{
     \setkomavar{firstfoot}{%
       \textbf{\usekomavar*{frombank}} \\[6pt]
@@ -90,12 +90,12 @@
     }
   }
 
-	\begin{letter}{}
-	\opening{}
-	\begin{invoice}
+  \begin{letter}{}
+  \opening{}
+  \begin{invoice}
 }
 
 \AtEndDocument{
-	\end{invoice}
-	\end{letter}
+  \end{invoice}
+  \end{letter}
 }
